@@ -19,3 +19,7 @@ Instead of using a browser, write your own HTTP client to test your server. Your
 
 ```bash
 python3 client.py -i server_ip -p server_port -f filename
+
+
+### How to run Task 2:
+python3 client.py -i 127.0.0.1 -p 8000 -f index.html
