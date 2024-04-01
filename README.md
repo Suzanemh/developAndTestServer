@@ -17,3 +17,12 @@ Open a terminal or command prompt, navigate to the directory containing the Pyth
 Run the Python script by executing python3 webserver.py.
 Open a web browser and go to http://127.0.0.1:8000/index.html. 
 You should see the contents of index.html displayed in your browser.
+
+
+#Task 2: Making a web client
+Instead of using a browser, write your own HTTP client to test your server. Your client will connect to the server using a TCP connection, send an HTTP request to the server, and display the server
+response as an output. You can assume that the HTTP request sent is a GET method. The client should take command line arguments specifying the server IP address or host name, the port at which
+the server is listening, and the path at which the requested object is stored at the server1. The following is an input command format to run the client.
+
+
+python3 client.py -i server\_ip -p server\_port -f filename

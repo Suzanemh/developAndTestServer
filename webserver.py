@@ -1,25 +1,28 @@
 import socket
 import os
 
+import os
+
 def handle_request(client_socket, request):
     # Parse the HTTP request
     request_lines = request.split('\r\n')
     filename = request_lines[0].split()[1]
 
-    # Check if the file exists
-    if os.path.exists(filename):
-        # Read the file
+    # Check if the requested resource is a file
+    if os.path.isfile(filename):
+        # File exists, read the file
         with open(filename, 'rb') as f:
             content = f.read()
         
         # Send HTTP response
         response = 'HTTP/1.1 200 OK\r\n\r\n'.encode() + content
     else:
-        # File not found, send 404 response
+        # File not found or is a directory, send 404 response
         response = 'HTTP/1.1 404 Not Found\r\n\r\nFile Not Found'.encode()
 
     client_socket.sendall(response)
     client_socket.close()
+
 
 def main():
     # Define the host and port
@@ -44,3 +47,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
